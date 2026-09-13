@@ -9,14 +9,14 @@ function YourStack({selectedStack,onRemove, onRemoveAll}:props) {
   return (
     <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-xs">
       <h3 className="text-xl font-bold text-gray-900">Your Stack</h3>
-      <p className="text-gray-400 text-sm mt-1">
+      <p className="text-slate-400 text-sm mt-1">
         {length === 0
-          ? 'No technologies selected yet'
+          ? 'No technologies selected yet.'
           : `${length} Technology Selected`}
       </p>
       <div className="mt-5 space-y-3">
         {length === 0 ? (
-          <div className="border border-dashed border-gray-200 rounded-2xl py-10 text-center text-gray-400 text-sm">
+          <div className="border border-dashed border-slate-300 rounded-2xl py-11 text-center text-slate-400 text-sm font-normal">
             Your stack is empty.
           </div>
         ) : (
