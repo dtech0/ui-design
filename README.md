@@ -4,13 +4,59 @@ DevStack is an interactive, modern web application designed for developers to ex
 
 ---
 
-## 🛠️ Technologies Used
+## 🌐 Live URL & Repository
 
-- **React 19** — Component-based UI library
-- **TypeScript** — Type-safe JavaScript for robust code
-- **Tailwind CSS v4** — Utility-first styling for modern and responsive design
-- **Vite** — Fast, modern frontend build tool and dev server
-- **React Toastify** — Interactive toast notifications with timer progress bar
+- **Live Deployment:** [https://ui-design-5.netlify.app/](https://ui-design-5.netlify.app/)
+- **GitHub Repository:** [https://github.com/dtech0/ui-design](https://github.com/dtech0/ui-design)
+b
+---
+
+## 🛠️ Technologies & Dependencies
+
+### Main Dependencies:
+- **React 19 (`^19.2.8`)** — Core UI library
+- **React DOM (`^19.2.8`)** — React package for working with the DOM
+- **React Toastify (`^11.1.0`)** — Interactive toast notifications with timer progress bar
+
+### Dev Dependencies:
+- **Vite (`^8.3.0`)** — Next-generation frontend tooling and build server
+- **Tailwind CSS v4 (`^4.3.3`)** & **`@tailwindcss/vite` (`^4.3.3`)** — Modern utility-first styling
+- **TypeScript (`~6.0.2`)** — Type safety and developer experience
+- **Oxlint (`^1.81.0`)** — Fast JavaScript / TypeScript linter
+
+---
+
+## 💻 How to Run the Project Locally
+
+Follow these simple steps to set up and run the project on your machine:
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/dtech0/ui-design.git
+cd ui-design
+```
+
+### 2. Install Dependencies
+Install all required packages listed in `package.json`:
+```bash
+npm install
+```
+*(If you are setting up dependencies manually in a new project, run:)*
+```bash
+npm install react-toastify
+```
+
+### 3. Start Development Server
+```bash
+npm run dev
+```
+Open your browser and navigate to **`http://localhost:5173`** to see the live app.
+
+### 4. Build for Production
+To create an optimized production build for Netlify / Vercel:
+```bash
+npm run build
+```
 
 ---
 
@@ -41,8 +87,8 @@ JSX stands for JavaScript XML. It is a syntax extension that allows us to write 
 
 ### 2. What is the difference between props and state?
 **Answer:**  
-- **Props (Properties):** Read-only data passed down from a parent component to a child component.
-- **State:** Data that is managed internally within a component and can change over time based on user interactions. When state changes, the component automatically re-renders.
+- **Props (Properties):** Read-only data passed down from a parent component to a child component. A child component cannot modify the props it receives.
+- **State:** Dynamic data managed internally within a component that can change over time through user interactions. When state updates, React automatically re-renders the component.
 
 ---
 
@@ -51,7 +97,7 @@ JSX stands for JavaScript XML. It is a syntax extension that allows us to write 
 The `useState` hook allows functional components to store and manage dynamic state. It returns the current state value and a function to update it.  
 In this project, `useState` is used in:
 - **`App.tsx`**: `const [selected, setSelected] = useState<Data[]>([])` to keep track of the technologies selected in "Your Stack".
-- **`Navbar.tsx`**: `const [isOpen, setIsOpen] = useState(false)` to open and close the mobile navigation menu, and `const [activeLink, setActiveLink] = useState('Home')` for active nav items.
+- **`Navbar.tsx`**: `const [isOpen, setIsOpen] = useState(false)` to toggle the mobile navigation drawer, and `const [activeLink, setActiveLink] = useState('Home')` for active link state.
 
 ---
 
@@ -72,10 +118,10 @@ React uses the unique `key` prop to identify each element in a list. When items 
 **Answer:**  
 Conditional rendering is the ability to display different UI elements or components based on whether a specific condition is true or false.  
 **Example used in this project (`YourStack.tsx`):**  
-When the user has not selected any technology (`length === 0`), an empty message is rendered. When items exist, it displays the item list and the "Remove All" button:
+When the user has not selected any technology (`length === 0`), an empty state message with a dashed border is rendered. When items exist, it displays the item list and the "Remove All" button:
 ```tsx
 {length === 0 ? (
-  <div className="border border-dashed border-gray-200 rounded-2xl py-10 text-center text-gray-400 text-sm">
+  <div className="border border-dashed border-slate-300 rounded-2xl py-11 text-center text-slate-400 text-sm font-normal">
     Your stack is empty.
   </div>
 ) : (
